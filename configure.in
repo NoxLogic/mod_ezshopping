@@ -1,0 +1,20 @@
+# Required initializer
+AC_INIT
+
+# Automake initialization
+AM_INIT_AUTOMAKE(mod_ezshopping, 0.2)
+
+# Add a test for a compiler.
+AC_PROG_CC
+AM_PROG_LIBTOOL
+
+apache_cflags="-I`/usr/bin/apxs2 -q INCLUDEDIR` `/usr/bin/apxs2 -q CFLAGS`"
+apr_cflags="`/usr/bin/apr-config --cflags --includes`"
+
+# Save the location of apache into the "apache_dir" variable.
+# The AC_SUBST macro causes the variable to be saved in config.status
+AC_SUBST(apache_cflags)
+AC_SUBST(apr_cflags)
+
+# Write config.status and the Makefile
+AC_OUTPUT(Makefile)

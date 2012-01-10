@@ -1,0 +1,5 @@
+./configure; make
+
+# Create a .so from the .la and install it
+su -c apxs2 -i -a -n mod_ezshopping libmodezshopping.la
+
